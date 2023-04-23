@@ -1,0 +1,17 @@
+.headerSearchSection{
+    /* background-image: url('../public/desk.jpg'); */
+    background-color: #0B7FAD;
+    height: 18em;
+    background-size: cover;
+    background-position: center;
+}
+
+.headerSearchSection h1{
+    color: #EEEEEE;
+}
+
+.headerSearchSection Button{
+    height: 2.4em;
+    background-color: #0B7FAD;
+
+}
