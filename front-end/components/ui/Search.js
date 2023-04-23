@@ -21,12 +21,7 @@ const Search = ({getQuery}) => {
         getQuery(`${jobTitle}-${jobLocation}`);
     }
     
-    // const onChange = (q) =>{
-    //     // setText(q)
-    //     getQuery(q)
-    // }
-
-
+    
     return (
         <>
             <section>
@@ -39,7 +34,7 @@ const Search = ({getQuery}) => {
                                 <Form.Control type="text" placeholder="Job Titile" value={jobTitle} onChange={handleForm} autoFocus />
                             </Form.Group>
                             <Form.Group className="my-3 col-5" controlId="formBasicPassword">
-                                <Form.Control type="text" placeholder="Job location" value={jobLocation} onChange={handleForm1} autoFocus/>
+                                <Form.Control type="text" placeholder="Job location" value={jobLocation} onChange={handleForm1} />
                             </Form.Group>
                             <Button variant="primary" type="submit" className='col-1  my-3'>
                                 Search

@@ -1,7 +1,12 @@
 import React from 'react'
 import { Nav, Navbar, NavDropdown,Container } from 'react-bootstrap'
 
-const Header = () => {
+const Header = ({signOut}) => {
+
+  const handleSubmit= (e) => {
+    signOut();
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -10,7 +15,8 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="#home" active>Find Jobs</Nav.Link>
-            <Nav.Link href="#link">Upload Resume</Nav.Link>
+            <Nav.Link href="#link">Profile</Nav.Link>
+            <Nav.Link onClick={handleSubmit}>Signout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,38 +1,45 @@
 import React, {useState, useEffect} from 'react';
 import { Container } from 'react-bootstrap'
-// import axios from 'axios'
-import Search from '@/components/ui/Search';
-import Header from '@/components/ui/Header';
-import Card from '@/components/jobs/Card';
+
+import LoginCard from '@/components/login/LoginCard';
+import Spinner from '@/components/ui/Spinner';
+
+import { initAuth, initFirebase } from "@/firebaseSetup/firebaseApp";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
+
 // import CharactersCard from './components/characters/CharactersCard';
 
 const Home = () => {
 
+  initFirebase();
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+  const [user, loading] = useAuthState(auth);
+  const router = useRouter();
+
+
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
+
+  if (user) {
+    router.push("/dashboard");
+  }
+
+  const signIn = async () => {
+    const result = await signInWithPopup(auth, provider);
+    console.log(result.user);
+  };
+
   // const [items, setItems] = useState([])
   // const [isLoading, setIsLoading] = useState(true)
-  const [query, setQuery] = useState('')
-  console.warn(query);
-  // useEffect(() => {
-  //   const fetchItems = async () => {
-  //     const result = await axios(
-  //       `https://www.breakingbadapi.com/api/characters?name=${query}`
-  //     )
-
-
-  //     setItems(result.data)
-  //     setIsLoading(false)
-  //   }
-
-  //   fetchItems()
-  // },[query])
-
 
   return (
-    <Container fluid className='container-fluid overflow-hidden'>
-      <Header />
-      <Search getQuery={(q)=> setQuery(q)}/>
-      {/* <Card/> */}
-      {/* <CharactersCard isLoading={isLoading} items={items}/> */}
+    <Container fluid className='container-fluid overlfow-hidden'>
+      <LoginCard signInCall={() => signIn()}/>
     </Container>
   );
 }

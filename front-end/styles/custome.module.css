@@ -15,3 +15,17 @@
     background-color: #0B7FAD;
 
 }
+
+.mainSection{
+    /* background-image: url('../public/desk.jpg'); */
+    background-color: #0B7FAD;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;   
+}
+
+.mainSection h1{
+    font-size: 39em;
+    color: #0B7FAD;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+}
