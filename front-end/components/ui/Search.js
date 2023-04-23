@@ -18,6 +18,7 @@ const Search = ({getQuery}) => {
     }
     
     const handleSubmit= (e) => {
+        e.preventDefault()
         getQuery(`${jobTitle}-${jobLocation}`);
     }
     
