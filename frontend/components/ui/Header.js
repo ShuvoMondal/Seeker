@@ -15,7 +15,7 @@ const Header = ({signOut}) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="#home" active>Find Jobs</Nav.Link>
-            <Nav.Link href="#link">Profile</Nav.Link>
+            {/* <Nav.Link href="#link">Profile</Nav.Link> */}
             <Nav.Link onClick={handleSubmit} className='btn btn-danger text-light ms-5'>SignOut</Nav.Link>
           </Nav>
         </Navbar.Collapse>
