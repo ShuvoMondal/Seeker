@@ -44,7 +44,7 @@ const Dashboard = props => {
                 setJobs(result)
             }
         });
-    },[query]);
+    },[,query]);
 
     console.warn(query);
 
